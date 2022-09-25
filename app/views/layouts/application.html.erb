@@ -11,6 +11,24 @@
   </head>
 
   <body>
+    <header>
+      <br>
+    <% if admin_signed_in? %>
+      <span>管理者<%= current_admin.email %>ログイン中</span>
+      <li>
+        <%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %>
+      </li>
+    <% elsif customer_signed_in? %>
+      <span>会員<%= current_customer.email %>ログイン中</span>
+      <li>
+        <%= link_to "会員ログアウト", destroy_customer_session_path, method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "会員ログイン", new_customer_session_path %>
+      </li>
+    <% end %>
+  </header>
     <%= yield %>
   </body>
 </html>
