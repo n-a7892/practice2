@@ -6,7 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -17,6 +17,9 @@
       <span>管理者<%= current_admin.email %>ログイン中</span>
       <li>
         <%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %>
+      </li>
+      <li>
+        <%= link_to "会員新規登録", new_customer_registration_path %>
       </li>
     <% elsif customer_signed_in? %>
       <span>会員<%= current_customer.email %>ログイン中</span>
@@ -29,6 +32,8 @@
       </li>
     <% end %>
   </header>
+  <div class="container">
     <%= yield %>
+  </div>
   </body>
 </html>
