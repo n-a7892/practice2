@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <header class="shadow-lg">
+    <header class="shadow">
       <div class="container-fluid">
         <div class="row">
           <div class="col-4 p-3">
@@ -70,9 +70,11 @@
         </div>
       </div>
       <div class="row contents">
-        <div class="col-2 nav_item">
-          <big>TOP</big>
-        </div>
+        <%= link_to root_path, class: "col-2 nav_item" do %>
+          <div>
+            <big>TOP</big>
+          </div>
+        <% end %>
         <div class="col-2 nav_item">
           <big>お知らせ</big>
         </div>
@@ -85,13 +87,45 @@
         <div class="col-2 nav_item">
           <big>よくある質問</big>
         </div>
-        <div class="col-2 nav_item">
-          <big>ログイン</big>
-        </div>
+        <%= link_to customer_session_path, class: "col-2 nav_item" do %>
+          <div>
+            <big>ログイン</big>
+          </div>
+        <% end %>
       </div>
   </header><br>
   <div class="container">
     <%= yield %>
   </div>
+  <footer>
+    <div class="container-fluid px-5 footer">
+      <div class="row">
+        <div>
+          <table>
+
+          </table>
+        </div>
+        <div>
+          <table>
+
+          </table>
+        </div>
+        <div>
+          <table>
+
+          </table>
+        </div>
+        <div>
+          <table>
+
+          </table>
+        </div>
+      </div>
+      <div class="float-right">当サイトの画像、テキスト等の二次使用・無断転載はお断りします</div>
+    </div>
+    <div class="footer2 text-center">
+      <div class="p-3 text-light">© 2022 公益財団法人 日本習字教育財団 All Right Reserved.</div>
+    </div>
+  </footer>
   </body>
 </html>
