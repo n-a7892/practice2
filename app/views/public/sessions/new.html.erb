@@ -1,26 +1,42 @@
-<h2>Log in</h2>
+<div>
+  <%= link_to "TOP", root_path %>　>　ログイン
+</div><br>
+<h2>ログイン</h2>
+<span>日本習字オンラインショップは、日本習字の支部長、個人会員代表者の方の専用ショッピングサイトです。</span>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="row">
+  <div class="col-6 p-3">
+    <div class="log_in_block border border-dark text-center p-5">
+      <%= form_with model: @customer, url: customer_session_path do |f| %>
+        <table class="mx-auto">
+          <tr>
+            <td height="50" width="20%"><%= f.label :会員ＩＤ %></td>
+            <td align="right"><%= f.text_field :number, size: 30 %></td>
+          </tr>
+          <tr>
+            <td height="50" width="20%"><%= f.label :パスワード %></td>
+            <td align="right"><%= f.password_field :password, autocomplete: "current-password", size: 30 %></td>
+          </tr>
+        </table>
+        <div class="actions">
+          <%= f.submit "ログイン", class: "btn btn-success button_submit vartical-middle" %>
+        </div>
+      <% end %>
+      <div class="py-3 text-right">
+        <%= link_to "パスワードをお忘れの方はこちら", root_path %><br>
+        <%= link_to "ログインできない方はこちら", root_path %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+  <div class="col-6 p-3">
+    <div class="log_in_block border border-dark p-5">
+      <h4><strong>オンライン会員IDをお持ちでない方へ</strong></h4>
+      <small>当ショップで商品をご購入いただくためには、オンライン会員IDとパスワードが必要です。<br>オンライン会員ID、パスワードをお持ちでない方は、<%= link_to "こちら", root_path %>からオンライン会員登録をお申し込みください。</small><br>
+      <hr width="100%">
+      <h4><strong>日本習字の支部長、個人会員代表者ではない方へ</strong></h4>
+      <small>当ショップでは、商品をご購入いただけません。カタログとしてご利用ください。</small>
+    </div>
+  </div>
+</div>
 
-<%= render "public/shared/links" %>
+
