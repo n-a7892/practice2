@@ -1,1 +1,22 @@
 @import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+
+.icon_cart {
+  font-size: 2em;
+}
+
+.button_cart {
+  height: 4.5em;
+  width: 7em;
+}
+
+.contents {
+  height: 3em;
+  background-color: #CCFFCC;
+}
+
+.nav_item {
+  margin: auto;
+  text-align: center;
+}

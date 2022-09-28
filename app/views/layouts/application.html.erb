@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Practice2</title>
+    <title>日本習字オンライン</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,27 +11,85 @@
   </head>
 
   <body>
-    <header>
-      <br>
-    <% if admin_signed_in? %>
-      <span>管理者<%= current_admin.email %>ログイン中</span>
-      <li>
-        <%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %>
-      </li>
-      <li>
-        <%= link_to "会員新規登録", new_customer_registration_path %>
-      </li>
-    <% elsif customer_signed_in? %>
-      <span>会員<%= current_customer.email %>ログイン中</span>
-      <li>
-        <%= link_to "会員ログアウト", destroy_customer_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "会員ログイン", new_customer_session_path %>
-      </li>
-    <% end %>
-  </header>
+    <header class="shadow-lg">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-4 p-3">
+            <a href="/"><%= image_tag 'sample_logo.jpg', :size =>'380x130' %></a>
+          </div>
+          <div class="col-8">
+            <div class="text-right h-auto p-3">
+              <div class="align-right">
+                <small>公益財団法人</small><big>日本習字教育財団</big>
+              </div>
+              <div class="align-right py-3">
+                <% if admin_signed_in? %>
+                  <div class="row float-right">
+                    <div>
+                      <span>管理者<%= current_admin.email %>様</span>
+                      <li>
+                        <%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %>
+                      </li>
+                      <li>
+                        <%= link_to "会員新規登録", new_customer_registration_path %>
+                      </li>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark text-center ml-3 button_cart">
+                      <i class="fas fa-shopping-cart icon_cart"></i><br>
+                      カート
+                    </button>
+                  </div>
+                <% elsif customer_signed_in? %>
+                  <div class="row float-right">
+                    <div>
+                      <span>
+                        <%= current_customer.last_name %>　<%= current_customer.first_name %> さま
+                      </span><br>
+                      <span>
+                        <i class="fab fa-product-hunt"></i>
+                        <%= current_customer.point %>ポイント
+                      </span>
+                      <li>
+                        <%= link_to "会員ログアウト", destroy_customer_session_path, method: :delete %>
+                      </li>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark text-center ml-3 button_cart">
+                      <i class="fas fa-shopping-cart icon_cart"></i><br>
+                      カート
+                    </button>
+                  </div>
+                <% else %>
+                  <button type="button" class="btn btn-outline-dark text-center ml-3 button_cart">
+                    <i class="fas fa-shopping-cart icon_cart"></i><br>
+                    カート
+                  </button>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row contents">
+        <div class="col-2 nav_item">
+          <big>TOP</big>
+        </div>
+        <div class="col-2 nav_item">
+          <big>お知らせ</big>
+        </div>
+        <div class="col-2 nav_item">
+          <big>商品カテゴリ</big>
+        </div>
+        <div class="col-2 nav_item">
+          <big>ご利用ガイド</big>
+        </div>
+        <div class="col-2 nav_item">
+          <big>よくある質問</big>
+        </div>
+        <div class="col-2 nav_item">
+          <big>ログイン</big>
+        </div>
+      </div>
+  </header><br>
   <div class="container">
     <%= yield %>
   </div>
