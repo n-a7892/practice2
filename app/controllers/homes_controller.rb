@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
   def top
-    @customer = Customer.all
+    @customers = Customer.all
   end
 
   def about

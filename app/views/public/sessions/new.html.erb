@@ -3,22 +3,23 @@
 </div><br>
 <h2>ログイン</h2>
 <span>日本習字オンラインショップは、日本習字の支部長、個人会員代表者の方の専用ショッピングサイトです。</span>
-
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 <div class="row">
   <div class="col-6 p-3">
     <div class="log_in_block border border-dark text-center p-5">
-      <%= form_with model: @customer, method: :post, url: customer_session_path do |f| %>
+      <%= form_with model: @customer, url: customer_session_path do |f| %>
         <table class="mx-auto">
           <tr>
             <td height="50" width="20%"><%= f.label :会員ＩＤ %></td>
-            <td align="right"><%= f.text_field :number, size: 30 %></td>
+            <td align="right"><%= f.number_field :number, size: 40 %></td>
           </tr>
           <tr>
             <td height="50" width="20%"><%= f.label :パスワード %></td>
             <td align="right"><%= f.password_field :password, autocomplete: "current-password", size: 30 %></td>
           </tr>
         </table>
-        <div class="actions">
+        <div>
           <%= f.submit "ログイン", class: "btn btn-success button_submit vartical-middle" %>
         </div>
       <% end %>
