@@ -38,3 +38,31 @@
 .log_in_block {
   height: 350px;
 }
+
+.log_in {
+  height: 75px;
+  background-color: #CCFFCC;
+}
+
+.search {
+  height: 60px;
+  background-color: #FFCC00;
+}
+
+.sidebar_order_button {
+  height: 120px;
+  width: 280px;
+  display: table;
+}
+
+.sidebar_button_side {
+  width: 10%;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.sidebar_button_main {
+  width: 80%;
+  display: table-cell;
+  vertical-align: middle;
+}
