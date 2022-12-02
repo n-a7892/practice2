@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :messages, only: [:new, :create]
+  end
+  namespace :public do
+    resources :messages, only: [:show, :index]
+  end
   devise_for :admins, controllers: {
   sessions: "admin/sessions",
   registrations: "admin/registrations"

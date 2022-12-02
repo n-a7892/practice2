@@ -1,0 +1,12 @@
+<h1>お知らせ作成</h1>
+<%= form_with model: @message, url: admin_messages_path do |message| %>
+  <%= message.label :題名 %>
+  <%= message.text_field :title, size: 70 %>
+  <br>
+  <%= message.label :内容 %>
+  <%= message.text_area :content, size: "70x10" %>
+  <br>
+  <%= message.file_field :image, accept: "image/*" %>
+  <br>
+  <%= message.submit "登録" %>
+<% end %>

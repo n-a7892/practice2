@@ -75,9 +75,11 @@
             <big>TOP</big>
           </div>
         <% end %>
-        <div class="col-2 nav_item">
-          <big>お知らせ</big>
-        </div>
+        <%= link_to public_messages_path, class: "col-2 nav_item" do %>
+          <div>
+            <big>お知らせ</big>
+          </div>
+        <% end %>
         <div class="col-2 nav_item">
           <big>商品カテゴリ</big>
         </div>
