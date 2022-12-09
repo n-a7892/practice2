@@ -1,21 +1,25 @@
-<div class="container-fluid mx-5">
+<div class="container-fluid mx-5 px-5">
   <%= link_to "TOP", root_path %>  >  お知らせ
   <h1>お知らせ</h1>
 </div>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-8 mx-4 p-5">
-      <% @messages.each do |messages| %>
-        <div>
-          <big><%= messages.title %></big><br>
-          <small><%= messages.content %></small>
-          <% if messages.image.attached? %>
-            <br>
-            <i class="fas fa-caret-right"></i>
-            <%= link_to "詳しくはこちら", public_message_path(messages.id) %>
-          <% end %>
-        </div>
-      <% end %>
+    <div class="col-8 mx-5 px-5">
+      <div class="border p-5">
+        <% @messages.each do |messages| %>
+          <div class="border-bottom py-3 pl-3">
+            <big><%= messages.title %></big><br>
+            <small><%= messages.content %></small>
+            <% if messages.image.attached? %>
+              <br>
+              <i class="fas fa-caret-right"></i>
+              <%= link_to "詳しくはこちら", public_message_path(messages.id) %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <br>
+      <%= link_to "＜ 戻る", root_path %>
     </div>
     <div class="col-3 mx-auto">
       <%= render 'homes/sidebar' %>

@@ -4,6 +4,6 @@ class Public::MessagesController < ApplicationController
   end
 
   def index
-    @messages = Message.first(10)
+    @messages = Message.order(id: :DESC).last(10)
   end
 end
