@@ -1,0 +1,16 @@
+<h3>大ジャンル一覧・追加</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-6 border p-3">
+      <%= form_with model: @big_genre, url: admin_big_genres_path do |big_genre| %>
+        <%= big_genre.label "大ジャンル名" %>
+        <%= big_genre.text_field :name %>
+        <%= big_genre.submit "追加する"%>
+      <% end %>
+      <br>
+      <% @big_genres.each do |big_genres| %>
+        <%= big_genres.name %>
+      <% end %>
+    </div>
+  </div>
+</div>
