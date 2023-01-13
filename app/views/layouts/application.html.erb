@@ -25,6 +25,9 @@
               <div class="align-right py-3">
                 <% if admin_signed_in? %>
                   <div class="row float-right">
+                    <div class="text-center">
+                      <%= link_to "アバウトページ", homes_about_path %>
+                    </div>
                     <div>
                       <span>管理者<%= current_admin.email %>様</span>
                       <li>

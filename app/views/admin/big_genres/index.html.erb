@@ -8,9 +8,18 @@
         <%= big_genre.submit "追加する"%>
       <% end %>
       <br>
-      <% @big_genres.each do |big_genres| %>
-        <%= big_genres.name %>
-      <% end %>
+      <table>
+        <tr>
+          <th style="width:50%;">大ジャンル名</th>
+          <th style="width:50%;"></th>
+        </tr>
+        <% @big_genres.each do |big_genres| %>
+        <tr>
+          <td><%= big_genres.name %></td>
+          <td><%= link_to "編集する", edit_admin_big_genre_path(big_genres.id) %></td>
+        <tr>
+        <% end %>
+      </table>
     </div>
   </div>
 </div>

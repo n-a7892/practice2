@@ -1,2 +1,10 @@
-<h1>Admin::Genres#edit</h1>
-<p>Find me in app/views/admin/genres/edit.html.erb</p>
+<h3>大ジャンル編集画面</h3>
+<br>
+<%= form_with model: @big_genre, url: admin_big_genre_path do |big_genre| %>
+    <%= big_genre.text_field :name %>
+    <%= big_genre.submit "変更する" %>
+    <%= link_to admin_big_genre_path(@big_genre.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+        <button type="button" class="btn btn-danger">削除する</button>
+    <% end %>
+<% end %>
+<br>
