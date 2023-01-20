@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :messages, only: [:new, :create]
     resources :big_genres, only: [:index, :create, :edit, :update, :destroy]
-    resources :small_genres, only: [:index, :create, :edit, :update]
+    resources :small_genres, only: [:index, :create, :edit, :update, :destroy]
 
   end
 

@@ -1,0 +1,28 @@
+<h3>小ジャンル一覧・追加</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-6 border p-3">
+      <%= form_with model: @small_genre, url: admin_small_genres_path do |small_genre| %>
+        <%= small_genre.label "小ジャンル名" %>
+        <%= small_genre.text_field :name %>
+        <%= small_genre.collection_select(:big_genre_id, @big_genres, :id, :name) %>
+        <%= small_genre.submit "追加する", class: "btn btn-secondary" %>
+      <% end %>
+      <br>
+      <table style="width:100%;">
+        <tr>
+          <th style="width:33%;">小ジャンル名</th>
+          <th style="width:33%;">大ジャンル名</th>
+          <th style="width:33%;"></th>
+        </tr>
+        <% @small_genres.each do |small_genres| %>
+        <tr>
+          <td><%= small_genres.name %></td>
+          <td><%= small_genres.big_genre.name %></td>
+          <td><%= link_to "編集する", edit_admin_small_genre_path(small_genres.id) %></td>
+        <tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

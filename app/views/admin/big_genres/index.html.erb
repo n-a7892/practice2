@@ -5,13 +5,13 @@
       <%= form_with model: @big_genre, url: admin_big_genres_path do |big_genre| %>
         <%= big_genre.label "大ジャンル名" %>
         <%= big_genre.text_field :name %>
-        <%= big_genre.submit "追加する"%>
+        <%= big_genre.submit "追加する", class: "btn btn-secondary" %>
       <% end %>
       <br>
-      <table>
+      <table style="width:100%;">
         <tr>
-          <th style="width:50%;">大ジャンル名</th>
-          <th style="width:50%;"></th>
+          <th>大ジャンル名</th>
+          <th></th>
         </tr>
         <% @big_genres.each do |big_genres| %>
         <tr>

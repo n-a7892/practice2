@@ -2,7 +2,7 @@
 <br>
 <%= form_with model: @big_genre, url: admin_big_genre_path do |big_genre| %>
     <%= big_genre.text_field :name %>
-    <%= big_genre.submit "変更する" %>
+    <%= big_genre.submit "変更する", class: "btn btn-primary" %>
     <%= link_to admin_big_genre_path(@big_genre.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
         <button type="button" class="btn btn-danger">削除する</button>
     <% end %>
