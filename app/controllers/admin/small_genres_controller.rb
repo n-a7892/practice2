@@ -10,7 +10,11 @@ class Admin::SmallGenresController < ApplicationController
     small_genre.save
     redirect_to admin_small_genres_path
   end
-
+  
+  def show
+    @small_genre = SmallGenre.find(params[:id])
+  end
+  
   def edit
     @big_genres = BigGenre.all
     @small_genre = SmallGenre.find(params[:id])

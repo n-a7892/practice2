@@ -10,6 +10,10 @@ class Admin::BigGenresController < ApplicationController
     redirect_to admin_big_genres_path
   end
 
+  def show
+    @big_genre = BigGenre.find(params[:id])
+  end
+
   def edit
     @big_genre = BigGenre.find(params[:id])
   end

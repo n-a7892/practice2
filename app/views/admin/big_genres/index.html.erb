@@ -2,6 +2,9 @@
 <div class="container">
   <div class="row">
     <div class="col-6 border p-3">
+      <% @big_genres.each do |big_genres| %>
+        <%= link_to "#{big_genres.name}", admin_big_genre_path(big_genres.id), {class: "px-2"} %>
+      <% end %>
       <%= form_with model: @big_genre, url: admin_big_genres_path do |big_genre| %>
         <%= big_genre.label "大ジャンル名" %>
         <%= big_genre.text_field :name %>

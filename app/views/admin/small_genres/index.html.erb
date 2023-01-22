@@ -2,11 +2,22 @@
 <div class="container">
   <div class="row">
     <div class="col-6 border p-3">
+      <% @small_genres.each do |small_genres| %>
+        <%= link_to "#{small_genres.name}", admin_small_genre_path(small_genres.id), {class: "px-2"} %>
+      <% end %>
       <%= form_with model: @small_genre, url: admin_small_genres_path do |small_genre| %>
-        <%= small_genre.label "小ジャンル名" %>
-        <%= small_genre.text_field :name %>
-        <%= small_genre.collection_select(:big_genre_id, @big_genres, :id, :name) %>
-        <%= small_genre.submit "追加する", class: "btn btn-secondary" %>
+        <table>
+          <tr>
+            <th><%= small_genre.label "小ジャンル名" %></th>
+            <th><%= small_genre.label "大ジャンル名" %></th>
+            <th></th>
+          </tr>
+          <tr>
+            <td><%= small_genre.text_field :name %></td>
+            <td><%= small_genre.collection_select(:big_genre_id, @big_genres, :id, :name) %></td>
+            <td><%= small_genre.submit "追加する", class: "btn btn-secondary" %></td>
+          </tr>
+        </table>
       <% end %>
       <br>
       <table style="width:100%;">
@@ -18,7 +29,9 @@
         <% @small_genres.each do |small_genres| %>
         <tr>
           <td><%= small_genres.name %></td>
-          <td><%= small_genres.big_genre.name %></td>
+          <td>
+            <%= link_to "#{small_genres.big_genre.name}", admin_big_genre_path(small_genres.big_genre.id) %>
+          </td>
           <td><%= link_to "編集する", edit_admin_small_genre_path(small_genres.id) %></td>
         <tr>
         <% end %>
