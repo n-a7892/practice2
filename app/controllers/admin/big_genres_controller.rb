@@ -12,6 +12,7 @@ class Admin::BigGenresController < ApplicationController
 
   def show
     @big_genre = BigGenre.find(params[:id])
+    @small_genres = @big_genre.small_genres.all
   end
 
   def edit

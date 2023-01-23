@@ -28,7 +28,7 @@
         </tr>
         <% @small_genres.each do |small_genres| %>
         <tr>
-          <td><%= small_genres.name %></td>
+          <td><%= link_to "#{small_genres.name}", admin_small_genre_path(small_genres.id) %></td>
           <td>
             <%= link_to "#{small_genres.big_genre.name}", admin_big_genre_path(small_genres.big_genre.id) %>
           </td>
