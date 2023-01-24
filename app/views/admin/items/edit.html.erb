@@ -1,2 +1,16 @@
-<h1>Admin::Items#edit</h1>
-<p>Find me in app/views/admin/items/edit.html.erb</p>
+<h3>商品編集画面</h3>
+<br>
+<%= form_with model: @item, url: admin_item_path do |item| %>
+  <div class="row valign-center">
+    <div class="p-2"><%= item.number_field :code %></div>
+    <div class="p-2"><%= item.collection_select(:small_genre_id, @small_genres, :id, :name) %></div>
+    <div class="p-2"><%= item.text_field :name %></div>
+    <div class="p-2"><%= item.text_area :introduction, size: "30x5" %></div>
+    <div class="p-2"><%= item.number_field :price %></div>
+    <div class="p-2"><%= item.submit "変更する", class: "btn btn-primary p-2" %>
+    <%= link_to admin_item_path(@item.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+        <button type="button" class="btn btn-danger p-2">削除する</button>
+    <% end %>
+  </div>
+<% end %>
+<br>

@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
   namespace :admin do
-    get 'items/index'
-    get 'items/edit'
-  end
-  namespace :admin do
     resources :messages, only: [:new, :create]
     resources :big_genres, only: [:index, :create, :show, :edit, :update, :destroy]
     resources :small_genres, only: [:index, :create, :show, :edit, :update, :destroy]
-    resources :items, only: [:index, :create, :edit, :update, :destroy]
+    resources :items, only: [:index, :create, :show, :edit, :update, :destroy]
 
   end
 

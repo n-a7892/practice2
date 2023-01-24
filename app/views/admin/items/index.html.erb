@@ -1,2 +1,36 @@
-<h1>Admin::Items#index</h1>
-<p>Find me in app/views/admin/items/index.html.erb</p>
+<h3>商品一覧・追加</h3>
+<div class="container">
+  <!--<div class="row">-->
+    <div class="p-4 border valign-center">
+      <%= form_with model: @item, url: admin_items_path do |item| %>
+        <div class="row">
+          <div class="px-1"><%= item.number_field :code, placeholder: "商品コード" %></div>
+          <div class="px-2"><%= item.collection_select(:small_genre_id, @small_genres, :id, :name, {prompt: "選択してください"}) %></div>
+          <div class="px-2"><%= item.text_field :name, placeholder: "商品名" %></div>
+          <div class="px-2"><%= item.text_area :introduction, placeholder: "紹介文" %></div>
+          <div class="px-2"><%= item.number_field :price, placeholder: "価格（税抜）" %></div>
+          <div class="px-2"><%= item.submit "追加する", class: "btn btn-secondary" %></div>
+        </div>
+      <% end %>
+    </div>
+    <br>
+    <div class="col-6">
+      <table style="width:100%;">
+        <tr>
+          <th style="width:33%;">商品名</th>
+          <th style="width:33%;">小ジャンル名</th>
+          <th style="width:33%;"></th>
+        </tr>
+        <% @items.each do |items| %>
+        <tr>
+          <td><%= link_to "#{items.name}", admin_item_path(items.id) %></td>
+          <td>
+            <%= link_to "#{items.small_genre.name}", admin_small_genre_path(items.small_genre.id) %>
+          </td>
+          <td><%= link_to "編集する", edit_admin_item_path(items.id) %></td>
+        <tr>
+        <% end %>
+      </table>
+    </div>
+  <!--</div>-->
+</div>
