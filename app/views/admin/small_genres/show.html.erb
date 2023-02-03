@@ -1,4 +1,4 @@
 <h3><big><%= @small_genre.name %></big>の商品一覧</h3>
-<% @items.each do |small_genres| %>
-  <%= link_to "#{small_genres.name}", admin_small_genre_path(small_genres.id), class: "px-1" %>
+<% @items.each do |items| %>
+  <%= link_to "#{items.name}", admin_item_path(items.id), class: "px-1" %>
 <% end %>
